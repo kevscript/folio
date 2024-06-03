@@ -1,9 +1,13 @@
+import { Project } from "@/lib/api";
+
 export function ProjectItem({
   isActive,
   handleActive,
+  project,
 }: {
   isActive: boolean;
   handleActive: () => void;
+  project: Project;
 }) {
   return (
     <div
@@ -20,7 +24,9 @@ export function ProjectItem({
         <div className="w-full h-full bg-gradient-to-br from-cyan-400 to-purple-500"></div>
       </div>
 
-      <span className="absolute top-8 right-8 text-sm italic">Curr.</span>
+      <span className="absolute top-8 right-8 text-sm italic">
+        {project.year}
+      </span>
 
       <div
         className={`w-full h-full bg-zinc-950 z-10 rounded-lg p-8 flex flex-row items-center gap-8 transition duration-500 ${
@@ -34,10 +40,10 @@ export function ProjectItem({
               isActive ? "text-transparent" : "text-white"
             }`}
           >
-            AideEducation
+            {project.name}
           </h5>
 
-          <p>CMS-driven website for educational non-profit organization.</p>
+          <p>{project.description}</p>
         </div>
       </div>
 
@@ -48,14 +54,7 @@ export function ProjectItem({
         <div className={`w-full overflow-hidden`}>
           <div className="w-full h-[1px] bg-zinc-900"></div>
           <ul className="my-8 flex flex-wrap gap-2">
-            {[
-              "Typescript",
-              "React",
-              "Next.js",
-              "PayloadCMS",
-              "TailwindCSS",
-              "GSAP",
-            ].map((tech, i) => (
+            {project.stack.map((tech, i) => (
               <div
                 key={i}
                 className="py-1 px-2 bg-zinc-900 rounded group/tech cursor-default"
@@ -66,21 +65,15 @@ export function ProjectItem({
               </div>
             ))}
           </ul>
-          <div className="flex leading-relaxed flex-col gap-4 my-8">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perferendis praesentium totam veritatis deserunt omnis nisi unde
-              quae quam! Officia sequi maiores exercitationem iste repellat nisi
-              in minima earum qui possimus!
-            </p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-              voluptatum possimus placeat rerum adipisci.
-            </p>
-          </div>
+          <div
+            className="flex leading-relaxed flex-col gap-4 my-8"
+            dangerouslySetInnerHTML={{ __html: project.content }}
+          />
+
           <div className="flex items-center justify-end gap-2 my-8">
             <a
-              href=""
+              href={project.source}
+              target="_blank"
               className="h-8 bg-zinc-900 p-[1px] relative group/social rounded overflow-hidden z-0 cursor-pointer"
             >
               <div className="absolute inset-0 bg-red-600 opacity-0 group-hover/social:opacity-50 transition -z-10">
@@ -92,7 +85,8 @@ export function ProjectItem({
               </div>
             </a>
             <a
-              href=""
+              href={project.demo}
+              target="_blank"
               className="h-8 bg-zinc-900 p-[1px] relative group/social rounded overflow-hidden z-0 cursor-pointer"
             >
               <div className="absolute inset-0 bg-red-600 opacity-0 group-hover/social:opacity-50 transition -z-10">
