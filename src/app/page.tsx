@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { ProfileSection } from "@/components/ProfileSection";
 import { ProjectSection } from "@/components/ProjectSection";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="my-24">
       <ProfileSection />

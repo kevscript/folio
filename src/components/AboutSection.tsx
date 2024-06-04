@@ -1,4 +1,5 @@
 import { Container } from "./Container";
+import { Hello } from "./Hello";
 
 export function AboutSection() {
   return (
@@ -14,8 +15,8 @@ export function AboutSection() {
           </h3>
         </div>
 
-        <div className="flex flex-col gap-4 leading-loose">
-          <p>Hey, hope you&apos;re having a lovely Sunday!</p>
+        <div className="flex flex-col gap-4 leading-loose text-zinc-300">
+          <Hello />
 
           <p>
             I&apos;m Kévin, a <strong>web developer</strong> based in Paris.
