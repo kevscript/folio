@@ -1,40 +1,14 @@
-"use client";
-import { useState } from "react";
-import { ProjectItem } from "./ProjectItem";
-import { Container } from "./Container";
+import { getProjects } from "@/lib/api";
+import { ProjectList } from "./ProjectList";
+import markdownToHtml from "@/lib/markdownToHtml";
 
-export function ProjectSection() {
-  const [activeProjectId, setActiveProjectId] = useState(0);
+export async function ProjectSection() {
+  // const post = getPostBySlug(params.slug);
+  const projects = await getProjects();
 
-  function handleActive(newId: number) {
-    if (activeProjectId !== newId) {
-      setActiveProjectId(newId);
-    }
+  if (!projects) {
+    return "No Projects";
   }
 
-  return (
-    <section>
-      <Container className="gap-16 flex flex-col">
-        <div className="relative z-0 max-w-fit">
-          <h3 className="uppercase font-black text-3xl italic">PROJECTS</h3>
-          <h3 className="absolute top-[1px] -left-[1px] uppercase font-black text-3xl italic text-cyan-400 -z-10">
-            PROJECTS
-          </h3>
-          <h3 className="absolute bottom-[1px] -right-[px] uppercase font-black text-3xl italic text-purple-500 -z-20">
-            PROJECTS
-          </h3>
-        </div>
-
-        <ul className="flex flex-col gap-4">
-          {Array.from({ length: 5 }, (_, i) => i).map((i) => (
-            <ProjectItem
-              key={i}
-              isActive={activeProjectId === i}
-              handleActive={() => handleActive(i)}
-            />
-          ))}
-        </ul>
-      </Container>
-    </section>
-  );
+  return <ProjectList projects={projects} />;
 }
