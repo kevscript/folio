@@ -1,4 +1,5 @@
 import { Project } from "@/lib/api";
+import Image from "next/image";
 
 export function ProjectItem({
   isActive,
@@ -81,7 +82,14 @@ export function ProjectItem({
               </div>
               <div className="w-full h-full bg-zinc-950 z-10 rounded flex justify-center items-center gap-3 px-4">
                 <span className="">Source</span>
-                <div className="w-4 h-4 rounded-full bg-zinc-900"></div>
+                <div className="w-4 h-4 flex justify-center items-center relative overflow-hidden">
+                  <Image
+                    src={"/github.svg"}
+                    fill
+                    className="object-contain"
+                    alt="source link"
+                  />
+                </div>
               </div>
             </a>
             <a
@@ -94,7 +102,14 @@ export function ProjectItem({
               </div>
               <div className="w-full h-full bg-zinc-950 z-10 rounded flex justify-center items-center gap-3 px-4">
                 <span className="">Live</span>
-                <div className="w-4 h-4 rounded-full bg-zinc-900"></div>
+                <div className="w-4 h-4 flex justify-center items-center relative overflow-hidden">
+                  <Image
+                    src={"/external-link.svg"}
+                    fill
+                    className="object-contain"
+                    alt="source link"
+                  />
+                </div>
               </div>
             </a>
           </div>
