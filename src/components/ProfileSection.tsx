@@ -16,7 +16,14 @@ export function ProfileSection() {
               <div className="w-full h-full bg-gradient-to-br from-cyan-400 to-purple-500"></div>
             </div>
             <div className="w-full h-full bg-zinc-950 z-10 rounded-lg p-8 flex flex-row gap-8">
-              <div className="w-24 h-24 bg-zinc-900 rounded"></div>
+              <div className="w-24 h-24 bg-zinc-900 rounded flex justify-center items-center relative overflow-hidden">
+                <Image
+                  src={"/avatar_1.png"}
+                  fill
+                  alt="avatar"
+                  className="avatar hue-rotate-180"
+                />
+              </div>
               <div className="flex flex-col gap-4 justify-center">
                 <h3 className="text-lg font-bold">Kévin Ostafinski</h3>
                 <ul className="flex flex-row gap-2">
