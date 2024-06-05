@@ -16,12 +16,12 @@ export function ProfileSection() {
               <div className="w-full h-full bg-gradient-to-br from-cyan-400 to-purple-500"></div>
             </div>
             <div className="w-full h-full bg-zinc-950 z-10 rounded-lg p-8 flex flex-row gap-8">
-              <div className="w-24 h-24 bg-zinc-900 rounded flex justify-center items-center relative overflow-hidden">
+              <div className="w-24 h-24 bg-zinc-900 rounded flex justify-center items-center relative overflow-hidden border-[0.5rem] border-zinc-900">
                 <Image
-                  src={"/avatar_1.png"}
+                  src={"/avatar.png"}
                   fill
                   alt="avatar"
-                  className="avatar hue-rotate-180"
+                  className="scale-[118%]"
                 />
               </div>
               <div className="flex flex-col gap-4 justify-center">
