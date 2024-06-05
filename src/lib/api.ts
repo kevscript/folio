@@ -14,6 +14,7 @@ export type Project = {
   description: string;
   content: string;
   slug: string;
+  imgPath: string;
 };
 
 const projectsDirectory = join(process.cwd(), "_projects");

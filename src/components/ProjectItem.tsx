@@ -45,7 +45,16 @@ export function ProjectItem({
           isActive && "rounded-b-none transition duration-1000"
         }`}
       >
-        <div className="w-20 h-20 bg-zinc-900 rounded"></div>
+        <div className="w-20 h-20 bg-zinc-900 rounded flex justify-center items-center relative overflow-hidden">
+          <Image
+            src={`/projects${project.imgPath}`}
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="object-contain h-8 w-8"
+            alt={project.name}
+          />
+        </div>
         <div className="flex flex-col gap-4 flex-1 min-h-full">
           <h5
             className={`w-fit text-xl font-bold bg-clip-text transition group-hover:text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 ${
@@ -83,11 +92,17 @@ export function ProjectItem({
           />
 
           <div className="flex items-center justify-end gap-2 my-8">
-            <a href={project.source} target="_blank">
-              <SecondaryButton icon={<GithubIcon />}>
-                Source Code
-              </SecondaryButton>
-            </a>
+            {project.source ? (
+              <a href={project.source} target="_blank">
+                <SecondaryButton icon={<GithubIcon />}>
+                  Source Code
+                </SecondaryButton>
+              </a>
+            ) : (
+              <span className="text-zinc-400 italic text-sm underline underline-offset-4">
+                Private Source
+              </span>
+            )}
             <a href={project.demo} target="_blank">
               <SecondaryButton icon={<ExternalLinkIcon />}>
                 Website
