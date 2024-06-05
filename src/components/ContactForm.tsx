@@ -6,9 +6,7 @@ import { PrimaryButton } from "./PrimaryButton";
 import { SecondaryButton } from "./SecondaryButton";
 import { toast } from "react-toastify";
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import { SendIcon } from "./icons/Send";
-import { ExternalLinkIcon } from "./icons/ExternalLink";
 
 export type ContactFormState = {
   message: string;

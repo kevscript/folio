@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export function TimeWidget() {
@@ -8,7 +8,9 @@ export function TimeWidget() {
     hours: number;
     mins: number;
     apm: string;
-  }>(() => {
+  } | null>(null);
+
+  useEffect(() => {
     let dateTime = new Date();
     let [hrs, mins, sec, apm] = dateTime
       .toLocaleTimeString("en-US", { timeZone: "Europe/Paris" })
@@ -16,8 +18,8 @@ export function TimeWidget() {
 
     const hours = ((Number(hrs) + 11) % 12) + 1;
 
-    return { hours: hours, mins: Number(mins), apm };
-  });
+    setTime({ hours: hours, mins: Number(mins), apm });
+  }, []);
 
   return (
     <li className="flex flex-row gap-2 items-center">
@@ -26,9 +28,9 @@ export function TimeWidget() {
       </div>
       <span className="text-sm uppercase">
         <strong>
-          {time.hours}:{time.mins}
+          {time?.hours || "0"}:{time?.mins || "00"}
         </strong>{" "}
-        {time.apm} <i>LT</i>
+        {time?.apm || "AM"} <i>LT</i>
       </span>
     </li>
   );

@@ -20,6 +20,7 @@ export function ProfileSection() {
                 <Image
                   src={"/avatar.png"}
                   fill
+                  sizes="100vw"
                   alt="avatar"
                   className="scale-[118%]"
                 />
