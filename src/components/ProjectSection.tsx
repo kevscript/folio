@@ -1,5 +1,7 @@
 import { getProjects } from "@/lib/api";
 import { ProjectList } from "./ProjectList";
+import { Container } from "./Container";
+import { SectionTitle } from "./SectionTitle";
 
 export async function ProjectSection() {
   const projects = await getProjects();
@@ -8,5 +10,12 @@ export async function ProjectSection() {
     return "No Projects";
   }
 
-  return <ProjectList projects={projects} />;
+  return (
+    <section>
+      <Container className="gap-16 flex flex-col">
+        <SectionTitle label="Projects" />
+        <ProjectList projects={projects} />
+      </Container>
+    </section>
+  );
 }

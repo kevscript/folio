@@ -1,5 +1,8 @@
 import { Project } from "@/lib/api";
 import Image from "next/image";
+import { SecondaryButton } from "./SecondaryButton";
+import { GithubIcon } from "./icons/Github";
+import { ExternalLinkIcon } from "./icons/ExternalLink";
 
 export function ProjectItem({
   isActive,
@@ -25,9 +28,17 @@ export function ProjectItem({
         <div className="w-full h-full bg-gradient-to-br from-cyan-400 to-purple-500"></div>
       </div>
 
-      <span className="absolute top-8 right-8 text-sm italic">
-        {project.year}
-      </span>
+      <div className="absolute top-8 right-8 flex items-center gap-2">
+        {project.active ? (
+          <div className="p-1 text-xs uppercase font-semibold bg-zinc-900 border border-cyan-700 flex justify-center items-center text-cyan-600 rounded-sm tracking-tight">
+            ACTIVE
+          </div>
+        ) : (
+          <div className="p-1 text-xs uppercase font-semibold bg-zinc-900 border border-zinc-800 flex justify-center items-center text-zinc-400 rounded-sm">
+            {project.year}
+          </div>
+        )}
+      </div>
 
       <div
         className={`w-full h-full bg-zinc-950 z-10 rounded-lg p-8 flex flex-row items-center gap-8 transition duration-500 ${
@@ -72,45 +83,15 @@ export function ProjectItem({
           />
 
           <div className="flex items-center justify-end gap-2 my-8">
-            <a
-              href={project.source}
-              target="_blank"
-              className="h-8 bg-zinc-900 p-[1px] relative group/social rounded overflow-hidden z-0 cursor-pointer"
-            >
-              <div className="absolute inset-0 bg-red-600 opacity-0 group-hover/social:opacity-50 transition -z-10">
-                <div className="w-full h-full bg-gradient-to-br from-cyan-400 to-purple-500"></div>
-              </div>
-              <div className="w-full h-full bg-zinc-950 z-10 rounded flex justify-center items-center gap-3 px-4">
-                <span className="">Source</span>
-                <div className="w-4 h-4 flex justify-center items-center relative overflow-hidden">
-                  <Image
-                    src={"/github.svg"}
-                    fill
-                    className="object-contain"
-                    alt="source link"
-                  />
-                </div>
-              </div>
+            <a href={project.source} target="_blank">
+              <SecondaryButton icon={<GithubIcon />}>
+                Source Code
+              </SecondaryButton>
             </a>
-            <a
-              href={project.demo}
-              target="_blank"
-              className="h-8 bg-zinc-900 p-[1px] relative group/social rounded overflow-hidden z-0 cursor-pointer"
-            >
-              <div className="absolute inset-0 bg-red-600 opacity-0 group-hover/social:opacity-50 transition -z-10">
-                <div className="w-full h-full bg-gradient-to-br from-cyan-400 to-purple-500"></div>
-              </div>
-              <div className="w-full h-full bg-zinc-950 z-10 rounded flex justify-center items-center gap-3 px-4">
-                <span className="">Live</span>
-                <div className="w-4 h-4 flex justify-center items-center relative overflow-hidden">
-                  <Image
-                    src={"/external-link.svg"}
-                    fill
-                    className="object-contain"
-                    alt="source link"
-                  />
-                </div>
-              </div>
+            <a href={project.demo} target="_blank">
+              <SecondaryButton icon={<ExternalLinkIcon />}>
+                Website
+              </SecondaryButton>
             </a>
           </div>
         </div>

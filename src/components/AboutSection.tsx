@@ -1,21 +1,14 @@
 import { Container } from "./Container";
 import { Hello } from "./Hello";
+import { SectionTitle } from "./SectionTitle";
 
 export function AboutSection() {
   return (
     <section>
       <Container className="flex flex-col gap-16">
-        <div className="relative z-0 max-w-fit">
-          <h3 className="uppercase font-black text-3xl italic">ABOUT ME</h3>
-          <h3 className="absolute top-[1px] -left-[1px] uppercase font-black text-3xl italic text-cyan-400 -z-10">
-            ABOUT ME
-          </h3>
-          <h3 className="absolute bottom-[1px] -right-[1px] uppercase font-black text-3xl italic text-purple-500 -z-20">
-            ABOUT ME
-          </h3>
-        </div>
+        <SectionTitle label="About me" />
 
-        <div className="flex flex-col gap-4 leading-loose text-zinc-300">
+        <div className="flex flex-col gap-4 leading-loose">
           <Hello />
 
           <p>
