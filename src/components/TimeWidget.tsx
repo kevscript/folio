@@ -5,8 +5,8 @@ import Image from "next/image";
 
 export function TimeWidget() {
   const [time, setTime] = useState<{
-    hours: number;
-    mins: number;
+    hours: string;
+    mins: string;
     apm: string;
   } | null>(null);
 
@@ -17,8 +17,9 @@ export function TimeWidget() {
       .split(/\W/);
 
     const hours = ((Number(hrs) + 11) % 12) + 1;
-
-    setTime({ hours: hours, mins: Number(mins), apm });
+    const paddedHours = hours < 10 ? `0${hours}` : hours.toString();
+    const paddedMins = Number(mins) < 10 ? `0${mins}` : mins.toString();
+    setTime({ hours: paddedHours, mins: paddedMins, apm });
   }, []);
 
   return (
