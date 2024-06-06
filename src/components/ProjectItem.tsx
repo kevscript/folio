@@ -41,11 +41,11 @@ export function ProjectItem({
       </div>
 
       <div
-        className={`w-full h-full bg-zinc-950 z-10 rounded-lg p-8 flex flex-row items-center gap-8 transition duration-500 ${
+        className={`w-full h-full bg-zinc-950 z-10 rounded-lg p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6 md:gap-8 transition duration-500 ${
           isActive && "rounded-b-none transition duration-1000"
         }`}
       >
-        <div className="w-20 h-20 bg-zinc-900 rounded flex justify-center items-center relative overflow-hidden">
+        <div className="w-16 h-16 lg:w-20 lg:h-20 bg-zinc-900 rounded flex justify-center items-center relative overflow-hidden">
           <Image
             src={`/projects${project.imgPath}`}
             width={0}
@@ -69,7 +69,7 @@ export function ProjectItem({
       </div>
 
       <div
-        className={`grid grid-rows-[0fr] aria-[hidden=false]:grid-rows-[1fr] bg-zinc-950 px-8 rounded-b-lg transition-all duration-500`}
+        className={`grid grid-rows-[0fr] aria-[hidden=false]:grid-rows-[1fr] bg-zinc-950 px-6 md:px-8 rounded-b-lg transition-all duration-500`}
         aria-hidden={!isActive}
       >
         <div className={`w-full overflow-hidden`}>
@@ -80,7 +80,7 @@ export function ProjectItem({
                 key={i}
                 className="py-1 px-2 bg-zinc-900 rounded group/tech cursor-default"
               >
-                <span className="text-sm text-zinc-400 group-hover/tech:text-white">
+                <span className="text-xs md:text-sm text-zinc-400 group-hover/tech:text-white">
                   {tech}
                 </span>
               </div>
@@ -94,9 +94,7 @@ export function ProjectItem({
           <div className="flex items-center justify-end gap-2 my-8">
             {project.source ? (
               <a href={project.source} target="_blank">
-                <SecondaryButton icon={<GithubIcon />}>
-                  Source Code
-                </SecondaryButton>
+                <SecondaryButton icon={<GithubIcon />}>Source</SecondaryButton>
               </a>
             ) : (
               <span className="text-zinc-400 italic text-sm underline underline-offset-4">

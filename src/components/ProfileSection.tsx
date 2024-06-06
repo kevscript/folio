@@ -15,8 +15,8 @@ export function ProfileSection() {
             <div className="absolute inset-0 bg-red-600 opacity-0 group-hover:opacity-50 transition -z-10">
               <div className="w-full h-full bg-gradient-to-br from-cyan-400 to-purple-500"></div>
             </div>
-            <div className="w-full h-full bg-zinc-950 z-10 rounded-lg p-8 flex flex-row gap-8">
-              <div className="w-24 h-24 bg-zinc-900 rounded flex justify-center items-center relative overflow-hidden border-[0.5rem] border-zinc-900">
+            <div className="w-full h-full bg-zinc-950 z-10 rounded-lg p-6 md:p-8 flex flex-row md:items-center gap-6 md:gap-8">
+              <div className="w-24 h-24 bg-zinc-900 rounded flex justify-center items-center relative overflow-hidden border-[0.5rem] border-zinc-900 shrink-0">
                 <Image
                   src={"/avatar.png"}
                   fill
@@ -25,9 +25,14 @@ export function ProfileSection() {
                   className="scale-[118%]"
                 />
               </div>
-              <div className="flex flex-col gap-4 justify-center">
-                <h3 className="text-lg font-bold">Kévin Ostafinski</h3>
-                <ul className="flex flex-row gap-2">
+              <div className="flex flex-col gap-4 justify-center flex-1 h-fit">
+                <div className="flex-1 flex justify-between flex-wrap gap-x-4">
+                  <h3 className="text-lg font-bold">Kévin Ostafinski</h3>
+                  <span className="text-sm italic text-cyan-400">
+                    Available
+                  </span>
+                </div>
+                <ul className="flex flex-row gap-2 justify-between flex-wrap">
                   <Socials />
 
                   <a href="/resume.pdf" target="_blank">
@@ -38,11 +43,8 @@ export function ProfileSection() {
                 </ul>
               </div>
             </div>
-            <span className="absolute top-8 right-8 text-sm italic text-cyan-400">
-              Available
-            </span>
           </div>
-          <ul className="flex flex-row gap-8 justify-end">
+          <ul className="flex flex-row gap-4 md:gap-8 justify-center md:justify-end flex-wrap">
             <li className="flex flex-row gap-2 items-center">
               <div className="w-4 h-4 flex justify-center items-center overflow-hidden relative">
                 <Image
