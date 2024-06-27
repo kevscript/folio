@@ -11,15 +11,25 @@ export function TimeWidget() {
   } | null>(null);
 
   useEffect(() => {
-    let dateTime = new Date();
-    let [hrs, mins, sec, apm] = dateTime
-      .toLocaleTimeString("en-US", { timeZone: "Europe/Paris" })
-      .split(/\W/);
+    function formatTime() {
+      let dateTime = new Date();
+      let [hrs, mins, sec, apm] = dateTime
+        .toLocaleTimeString("en-US", { timeZone: "Europe/Paris" })
+        .split(/\W/);
 
-    const hours = ((Number(hrs) + 11) % 12) + 1;
-    const paddedHours = hours < 10 ? `0${hours}` : hours.toString();
-    const paddedMins = Number(mins) < 10 ? `0${mins}` : mins.toString();
-    setTime({ hours: paddedHours, mins: paddedMins, apm });
+      const hours = ((Number(hrs) + 11) % 12) + 1;
+      const paddedHours = hours < 10 ? `0${hours}` : hours.toString();
+      const paddedMins =
+        Number(mins) < 10 ? `0${Number(mins)}` : Number(mins).toString();
+      setTime({ hours: paddedHours, mins: paddedMins, apm });
+    }
+
+    formatTime();
+
+    const intervalId = setInterval(() => {
+      formatTime();
+    }, 1000 * 60);
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
