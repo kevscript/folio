@@ -36,7 +36,7 @@ export function ProfileSection() {
                   <Socials />
 
                   <a
-                    href="/pdf/cv.pdf"
+                    href="/pdf/cv_ostafinski_kevin.pdf"
                     target="_blank"
                     download="Ostafinski Kévin - CV.pdf"
                   >
