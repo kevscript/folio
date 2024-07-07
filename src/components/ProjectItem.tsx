@@ -97,8 +97,8 @@ export function ProjectItem({
                 <SecondaryButton icon={<GithubIcon />}>Source</SecondaryButton>
               </a>
             ) : (
-              <span className="text-zinc-400 italic text-sm underline underline-offset-4">
-                Private Source
+              <span className="text-zinc-400 italic text-sm">
+                Internal Repo
               </span>
             )}
             <a href={project.demo} target="_blank">

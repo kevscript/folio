@@ -10,7 +10,12 @@ export function Footer() {
         <div className="flex justify-center gap-4 md:justify-between items-center">
           <Socials />
 
-          <a href="/resume.pdf" target="_blank">
+          <a
+            href="/pdf/cv_ostafinski_kevin.pdf"
+            target="_blank"
+            title="Download CV"
+            download="Ostafinski Kévin - CV.pdf"
+          >
             <SecondaryButton icon={<DownloadIcon />}>Resume</SecondaryButton>
           </a>
         </div>

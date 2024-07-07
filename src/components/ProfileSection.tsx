@@ -12,7 +12,7 @@ export function ProfileSection() {
       <Container>
         <div className="flex flex-col gap-8">
           <div className="w-full bg-zinc-900 p-[1px] relative group rounded-lg overflow-hidden z-0">
-            <div className="absolute inset-0 bg-red-600 opacity-0 group-hover:opacity-50 transition -z-10">
+            <div className="absolute inset-0 bg-red-600 opacity-50 transition -z-10">
               <div className="w-full h-full bg-gradient-to-br from-cyan-400 to-purple-500"></div>
             </div>
             <div className="w-full h-full bg-zinc-950 z-10 rounded-lg p-6 md:p-8 flex flex-row md:items-center gap-6 md:gap-8">
@@ -20,7 +20,7 @@ export function ProfileSection() {
                 <Image
                   src={"/avatar.png"}
                   fill
-                  sizes="100vw"
+                  sizes="25vw"
                   alt="avatar"
                   className="scale-[118%]"
                 />
@@ -28,9 +28,7 @@ export function ProfileSection() {
               <div className="flex flex-col gap-4 justify-center flex-1 h-fit">
                 <div className="flex-1 flex justify-between flex-wrap gap-x-4">
                   <h3 className="text-lg font-bold">Kévin Ostafinski</h3>
-                  <span className="text-sm italic text-cyan-400">
-                    Available
-                  </span>
+                  <span className="text-xs text-cyan-400">Available</span>
                 </div>
                 <ul className="flex flex-row gap-2 justify-between flex-wrap">
                   <Socials />
@@ -38,10 +36,11 @@ export function ProfileSection() {
                   <a
                     href="/pdf/cv_ostafinski_kevin.pdf"
                     target="_blank"
+                    title="Download CV"
                     download="Ostafinski Kévin - CV.pdf"
                   >
                     <SecondaryButton icon={<DownloadIcon />}>
-                      Resume (CV)
+                      Resume
                     </SecondaryButton>
                   </a>
                 </ul>

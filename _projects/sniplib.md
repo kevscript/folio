@@ -17,8 +17,8 @@ stack:
     "Jest",
     "Cypress",
   ]
-description: "Snippets manager on the cloud."
+description: "Snipper manager on the cloud."
 imgPath: "/sniplib.svg"
 ---
 
-SnipLib is service application for saving and organizing code snippets in the cloud. It comes with an IDE and implements a pretty straight-forward system of lists and tags to help you find and manage your code.
+SnipLib is a software as a (free) service application for saving and managing your code snippets in the cloud. It comes with an IDE and implements a pretty straight-forward system of lists and tags to help you find and organize your code.
