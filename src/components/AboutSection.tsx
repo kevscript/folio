@@ -13,7 +13,7 @@ export function AboutSection() {
 
           <p>
             I&apos;m Kévin, a <strong>web developer</strong> based in Paris.
-            Since 2017 most of my journey has been dedicated to the{" "}
+            Since 2017 most of my coding journey has been dedicated to the{" "}
             <strong>front-end</strong> side of things, leveraging the power of
             modern tools to build pleasing user experiences. Specializing in{" "}
             <strong>Javascript</strong> & <strong>React</strong> ecosystem.

@@ -35,9 +35,13 @@ export function ProfileSection() {
                 <ul className="flex flex-row gap-2 justify-between flex-wrap">
                   <Socials />
 
-                  <a href="/resume.pdf" target="_blank">
+                  <a
+                    href="/pdf/cv.pdf"
+                    target="_blank"
+                    download="Ostafinski Kévin - CV.pdf"
+                  >
                     <SecondaryButton icon={<DownloadIcon />}>
-                      Resume
+                      Resume (CV)
                     </SecondaryButton>
                   </a>
                 </ul>
