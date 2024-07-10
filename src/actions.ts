@@ -19,10 +19,12 @@ export async function contactAction(
   }
 
   const resend = new Resend(process.env.RESEND_API_KEY);
-  const { data, error } = await resend.emails.send({
-    from: "portfolio@resend.dev",
-    to: "kevscripted@gmail.com",
-    subject: `[CONTACT FOLIO] - ${validFormData.data.name}`,
+  const fromDomain = process.env.RESEND_FROM_DOMAIN as string;
+  const toEmail = process.env.RESEND_TO_EMAIL as string;
+  const { error } = await resend.emails.send({
+    from: `CONTACT FOLIO <contact@${fromDomain}>`,
+    to: [toEmail],
+    subject: `[FOLIO] - ${validFormData.data.name}`,
     html: `<h1>${validFormData.data.email}</h1>`,
   });
 
