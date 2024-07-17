@@ -17,7 +17,7 @@ stack:
     "Jest",
     "Cypress",
   ]
-description: "Snipper manager on the cloud."
+description: "Snippet manager on the cloud."
 imgPath: "/sniplib.svg"
 ---
 
